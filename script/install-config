@@ -1,0 +1,25 @@
+#! /bin/bash
+cd "$(dirname "$0")"
+
+GREEN='\e[0;32m'
+NC='\e[0m'
+
+CONFIG=(
+    'alacritty'
+    'dunst'
+    'i3'
+    'i3status'
+    'nvim'
+
+)
+
+for CONF in "${CONFIG[@]}"; do
+    echo -e "${GREEN}> Install Config"
+    mkdir ~/.config/"$CONF"
+    cp -r ../config/"$CONF" ~/.config/
+done
+
+echo -e "${GREEN}> Backup Wallpaper: ${NC}"
+mkdir ~/wallpaper
+cp -r ../wallpaper ~/
+
