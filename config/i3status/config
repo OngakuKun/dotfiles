@@ -1,0 +1,34 @@
+general {
+        output_format = "i3bar"
+        colors = true
+	color_good = "#8aadf4"
+	color_degraded = "#f5a97f"
+	color_bad = "#ed8796"
+        interval = 5
+}
+
+order += "memory"
+order += "disk /"
+order += "volume master"
+order += "time"
+
+time {
+        format = "%H:%M "
+}
+
+volume master {
+	format = "󰕾 %volume"
+	format_muted = "󰖁 %volume"
+	device = "default"
+}
+
+disk "/" {
+        format = "󰨣 %free"
+}
+
+memory {
+        format = "󰘚 %used"
+        threshold_degraded = "10%"
+        format_degraded = "󰘚 %free"
+}
+
